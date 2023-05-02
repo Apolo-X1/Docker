@@ -1,0 +1,59 @@
+#show images
+docker images
+
+#install images
+docker pull "image name"
+
+#if you wanna install 1 specific image version
+docker pull "image name":"version name"
+
+#remove image version
+docker image rm "image name":"version name"
+
+
+####################################################
+
+
+#create container (we will use mongo as example)
+docker create mongo 
+
+#create container with name
+docker create --name happy_einstein mongo
+
+#start container
+docker start happy_einstein
+
+#show containers (only those who are actives)
+docker ps
+
+#show containers (so they aren't actives)
+docker ps -a
+
+#delete container
+docker rm happy_einstein
+
+
+#create container (port map)
+docker create -p27017:27017 --name happy_einstein2 mongo    #the port that is mencioned is that of mongo 
+
+#create container port map (but this time, we'll let docker choose the port)
+docker create -p27017 --name happy_ford mongo
+
+#show if container execute successful
+docker logs happy_einstein 
+
+#stay listening to the logs that it emits
+docker logs --follow happy_einstein
+
+
+####################################################
+
+
+#all the above but easier
+docker run --name gg_bro -p27017:27017 -d mongo
+
+
+#####################################################
+
+#enable conecction with mongo
+docker create -p27017:27017 --name apolo -e MONGO_INITDB_ROOT_USERNAME=apolo -e MONGO_INITDB_ROOT_PASSWORD=admin mongo

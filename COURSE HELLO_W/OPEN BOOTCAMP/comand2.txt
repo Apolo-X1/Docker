@@ -1,0 +1,22 @@
+#run container
+docker run -p 8080:80 nginx
+
+#other better form for don't continue listening
+docker run -p 8080:80 -d nginx
+
+#with name
+docker run --name Apolo-xi -p 8080:80 -d nginx
+
+#rename container
+docker rename Apolo-xi "new_name"
+docker rename apolo-xi Apolo
+
+#enter in container
+docker run -it "name"
+docker run -it ubuntu
+
+#if you want that container continue live
+docker run -dt "name"
+docker run -dt ubuntu
+
+
