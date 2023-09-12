@@ -1,0 +1,43 @@
+-- help
+docker container help
+docker image help
+
+
+-- descargar una imagen 
+docker pull hello-world
+
+-- ejecutar la imagen
+docker run hello-world
+
+-- mostrar todos los contenedores que tenemos
+docker container ls -a	
+
+-- eliminar uno o varios contenedores (para eliminar varios contenedores se utiliza un espacio entre ids o nombres)
+docker container rm 0d93870c3763
+docker container rm 0d93870c3763 40c396cd957a
+
+-- eliminar absolutamente todos los contenedores detenidos
+docker container prune
+
+-- eliminar uno o varios contenedores que esten corriendo
+docker container kill serene_davinci
+
+-- eliminar una imagen
+doker image rm hello-world
+
+eliminar un contenedor que aun se encuentre corriendo
+docker container rm -f 8da
+
+
+-- logs del contenedor
+docker container logs badf
+
+
+
+
+-- conectandonos a maria db
+docker container run -e MARIADB_RANDOM_ROOT_PASSWORD=yes -dp 3306:3306 mariadb:jammy
+
+-- ahora hacemos el log para buscar la contraseña generada aleatoriamente
+docker container logs "id-contenedor"
+
